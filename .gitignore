@@ -11,4 +11,6 @@ Thumbs.db
 *.log*
 node_modules/
 
-# Собранные файлы (допишите самостоятельно)
+# Собираемые файлы webpack
+/dist
+/build
