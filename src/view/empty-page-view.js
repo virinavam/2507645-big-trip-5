@@ -1,4 +1,4 @@
-import {createElement} from '../../render.js';
+import {createElement} from '../render.js';
 
  function createEmptyPageTemplate() {
    return '<p class="trip-events__msg"></p>';
