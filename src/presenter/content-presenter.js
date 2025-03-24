@@ -1,8 +1,8 @@
 import {RenderPosition, render} from '../render.js';
-import TripInfoView from '../view/content/trip-info-view.js';
-import EventsView from '../view/content/trip-events-view.js';
-import EventView from '../view/content/trip-event-view.js';
-import EventEditorView from '../view/content/edit-form-view.js';
+import TripInfoView from '../view/trip-info-view.js';
+import EventsView from '../view/trip-events-view.js';
+import EventView from '../view/trip-event-view.js';
+import EventEditorView from '../view/edit-form-view.js';
 
 const POINTS_COUNT = 3;
 
