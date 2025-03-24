@@ -1,6 +1,6 @@
 import {render} from '../render.js';
- import Filter from '../view/toolbar/filter-view.js';
- import Sort from '../view/toolbar/sort-view.js';
+ import Filter from '../view/filters-view.js';
+ import Sort from '../view/sort-view.js';
 
  export default class ToolbarPresenter {
    filterComponent = new FilterView();
