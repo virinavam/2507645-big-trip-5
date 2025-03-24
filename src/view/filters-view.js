@@ -26,7 +26,7 @@ function createFiltersTemplate(){
               </form>`;
   }
 
-  export default class Sort{
+  export default class Filters{
     getTemplate(){
       return createFiltersTemplate()
     }
