@@ -14,11 +14,14 @@
   loaderComponent = new LoaderView();
   emptyPageComponent = new EmptyPageView();
 
-  constructor({ boardContainer }) {
+  constructor({ boardContainer, tripsModel }) {
     this.boardContainer = boardContainer;
+    this.tripsModel = tripsModel;
   }
 
   init() {
+    this.boardTrips = [...this.tripsModel.getTrips()];
+
     render(this.tripInfoComponent, this.boardContainer);
     render(this.filtersComponent, this.boardContainer);
     render(this.sortComponent, this.boardContainer);
@@ -29,8 +32,8 @@
       render(this.emptyPageComponent, this.boardContainer);
     }, 2000);
 
-    for (let i = 0; i < 3; i++) {
-      render(new TripEventView(), this.boardContainer);
+    for (let i = 0; i < this.boardTrips.length; i++) {
+      render(new TripEventView({ trip: this.boardTrips[i] }), this.boardContainer);
     }
 
     render(new EdirFormView(), this.boardContainer);
