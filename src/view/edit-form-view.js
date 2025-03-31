@@ -158,8 +158,33 @@ import {createElement} from '../render.js';
              </li>`;
  }
 
- export default class EventEditorView {
-   getElement() {
-     return createElement(createEventEditorTemplate());
-   }
- }
+ export default class EditFormView {
+  constructor(routePoint = null) {
+    this.routePoint = routePoint || new RoutePoint({
+      type: '',
+      destination: new Destination({ name: '', description: '', city: '', photos: [''] }),
+      options: [],
+    });
+  }
+
+  render() {
+    const { destination, options } = this.routePoint;
+    const optionsHtml = options.map(option => `
+      <li>
+        <input type="text" value="${option.name}" placeholder="Option Name" />
+        <input type="number" value="${option.price}" placeholder="Option Price" />
+      </li>
+    `).join("");
+
+    return `
+      <form>
+        <input type="text" value="${destination.name}" placeholder="Destination Name" />
+        <textarea>${destination.description}</textarea>
+        <input type="text" value="${destination.city}" placeholder="City" />
+        <img src="${destination.photos[0]}" alt="Destination Photo" />
+        <ul>${optionsHtml}</ul>
+        <button type="submit">Save</button>
+      </form>
+    `;
+  }
+}

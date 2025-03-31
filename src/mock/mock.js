@@ -1,75 +1,76 @@
-import {getRandomArrayElement} from '../utils.js';
- import {COLORS} from '../const.js';
+import { getRandomArrayElement } from '../utils.js';
 
- const mockTasks = [
-   {
-     description: 'Сделать домашку',
-     dueDate: null,
-     repeating: {
-       mo: false,
-       tu: false,
-       we: true,
-       th: false,
-       fr: false,
-       sa: true,
-       su: false,
-     },
-     color: getRandomArrayElement(COLORS),
-     isArchive: false,
-     isFavorite: true,
-   },
-   {
-     description: 'Завести кота',
-     dueDate: null,
-     repeating: {
-       mo: false,
-       tu: false,
-       we: false,
-       th: false,
-       fr: false,
-       sa: false,
-       su: false,
-     },
-     color: getRandomArrayElement(COLORS),
-     isArchive: false,
-     isFavorite: false,
-   },
-   {
-     description: 'Купить доллары',
-     dueDate: new Date('2014-01-01'),
-     repeating: {
-       mo: false,
-       tu: false,
-       we: false,
-       th: false,
-       fr: false,
-       sa: false,
-       su: false,
-     },
-     color: getRandomArrayElement(COLORS),
-     isArchive: true,
-     isFavorite: false,
-   },
-   {
-     description: 'Пройти интенсив на соточку',
-     dueDate: new Date('2023-06-26'),
-     repeating: {
-       mo: false,
-       tu: false,
-       we: false,
-       th: false,
-       fr: false,
-       sa: false,
-       su: false,
-     },
-     color: getRandomArrayElement(COLORS),
-     isArchive: false,
-     isFavorite: true,
-   }
- ];
+export const COLORS_LIST = ['red', 'green', 'blue'];
 
- function getRandomTask() {
-   return getRandomArrayElement(mockTasks);
- }
+const mockTasks = [
+  {
+    description: 'Сделать домашку',
+    dueDate: null,
+    repeating: {
+      mo: false,
+      tu: false,
+      we: true,
+      th: false,
+      fr: false,
+      sa: true,
+      su: false,
+    },
+    color: getRandomArrayElement(COLORS_LIST),
+    isArchive: false,
+    isFavorite: true,
+  },
+  {
+    description: 'Завести кота',
+    dueDate: null,
+    repeating: {
+      mo: false,
+      tu: false,
+      we: false,
+      th: false,
+      fr: false,
+      sa: false,
+      su: false,
+    },
+    color: getRandomArrayElement(COLORS_LIST),
+    isArchive: false,
+    isFavorite: false,
+  },
+  {
+    description: 'Купить доллары',
+    dueDate: new Date('2014-01-01'),
+    repeating: {
+      mo: false,
+      tu: false,
+      we: false,
+      th: false,
+      fr: false,
+      sa: false,
+      su: false,
+    },
+    color: getRandomArrayElement(COLORS_LIST),
+    isArchive: true,
+    isFavorite: false,
+  },
+  {
+    description: 'Пройти интенсив на соточку',
+    dueDate: new Date('2023-06-26'),
+    repeating: {
+      mo: false,
+      tu: false,
+      we: false,
+      th: false,
+      fr: false,
+      sa: false,
+      su: false,
+    },
+    color: getRandomArrayElement(COLORS_LIST),
+    isArchive: false,
+    isFavorite: true,
+  }
+];
 
- export {getRandomTask};
+function getRandomTask() {
+  return getRandomArrayElement(mockTasks);
+}
+
+export { getRandomTask };
