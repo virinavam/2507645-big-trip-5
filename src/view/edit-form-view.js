@@ -23,13 +23,22 @@ function createEventEditorTemplate(routePoint) {
 
 export default class EditFormView extends AbstractView {
   #routePoint = null;
+  #handleFormSubmit = null;
 
-  constructor(routePoint) {
+  constructor({ routePoint, onFormSubmit }) {
     super();
     this.#routePoint = routePoint;
+    this.#handleFormSubmit = onFormSubmit;
+    this.element.querySelector('form')
+      .addEventListener('submit', this.#formSubmitHandler);
   }
 
   get template() {
     return createEventEditorTemplate(this.#routePoint);
   }
+
+  #formSubmitHandler = (evt) => {
+    evt.preventDefault();
+    this.#handleFormSubmit();
+  };
 }
