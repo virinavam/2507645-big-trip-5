@@ -1,4 +1,3 @@
-import { render } from './framework/render.js';
 import ToolbarPresenter from './presenter/toolbar-presenter.js';
 import ContentPresenter from './presenter/content-presenter.js';
 import BoardPresenter from './presenter/board-presenter.js';

@@ -1,4 +1,3 @@
-import { RoutePointView } from '../view/route-point-view.js';
 import { generateMockData } from '../model/mock-data.js';
 
 export class RoutePointPresenter {
@@ -8,7 +7,7 @@ export class RoutePointPresenter {
   }
 
   loadRoutePoints() {
-    this.routePoints = generateSampleData();
+    this.routePoints = generateMockData();
     this.render();
   }
 
