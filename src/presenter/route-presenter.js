@@ -1,5 +1,4 @@
-import { RoutePointView } from '../view/route-point-view.js';
-import { generateMockData } from '../model/mock-data.js';
+import { generateSampleData } from '../model/mock-data.js';
 
 export class RoutePointPresenter {
   constructor(view) {

@@ -20,7 +20,7 @@ function createRoutePointElement(routePoint) {
 
   const options = document.createElement('ul');
   options.classList.add('options');
-  routePoint.options.forEach(option => {
+  routePoint.options.forEach((option) => {
     const optionItem = document.createElement('li');
     optionItem.textContent = `${option.name} - ${option.price} руб.`;
     options.appendChild(optionItem);
@@ -45,7 +45,7 @@ export default class RoutePointView extends AbstractView {
   renderRoutePoints(routePoints) {
     this.#container.innerHTML = '';
 
-    routePoints.forEach(routePoint => {
+    routePoints.forEach((routePoint) => {
       const routePointElement = createRoutePointElement(routePoint);
       this.#container.appendChild(routePointElement);
     });

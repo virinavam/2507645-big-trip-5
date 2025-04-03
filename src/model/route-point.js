@@ -1,5 +1,5 @@
 export class Option {
-  constructor({type, name, price}) {
+  constructor({ type, name, price }) {
     this.type = type;
     this.name = name;
     this.price = price;
@@ -7,7 +7,7 @@ export class Option {
 }
 
 export class Destination {
-  constructor({name, description, city, photos}) {
+  constructor({ name, description, city, photos }) {
     this.name = name;
     this.description = description;
     this.city = city;
@@ -16,7 +16,7 @@ export class Destination {
 }
 
 export class RoutePoint {
-  constructor({type, destination, options}) {
+  constructor({ type, destination, options }) {
     this.type = type;
     this.destination = destination;
     this.options = options;

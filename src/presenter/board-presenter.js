@@ -34,7 +34,10 @@ export default class BoardPresenter {
 
   #handleLoadMoreButtonClick = () => {
     this.#boardTrips
-      .slice(this.#renderedTripCount, this.#renderedTripCount + TRIP_COUNT_PER_STEP)
+      .slice(
+        this.#renderedTripCount,
+        this.#renderedTripCount + TRIP_COUNT_PER_STEP,
+      )
       .forEach((trip) => this.#renderTrip(trip));
     this.#renderedTripCount += TRIP_COUNT_PER_STEP;
   };
@@ -53,7 +56,7 @@ export default class BoardPresenter {
       onEditClick: () => {
         replaceCardToForm();
         document.addEventListener('keydown', escKeyDownHandler);
-      }
+      },
     });
 
     const tripEditComponent = new EditFormView({
@@ -61,7 +64,7 @@ export default class BoardPresenter {
       onFormSubmit: () => {
         replaceFormToCard();
         document.removeEventListener('keydown', escKeyDownHandler);
-      }
+      },
     });
 
     function replaceCardToForm() {
@@ -89,7 +92,11 @@ export default class BoardPresenter {
         return;
       }
 
-      for (let i = 0; i < Math.min(this.#boardTrips.length, TRIP_COUNT_PER_STEP); i++) {
+      for (
+        let i = 0;
+        i < Math.min(this.#boardTrips.length, TRIP_COUNT_PER_STEP);
+        i++
+      ) {
         this.#renderTrip(this.#boardTrips[i]);
       }
     }, 2000);
