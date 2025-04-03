@@ -1,5 +1,5 @@
 function getRandomArrayElement(items) {
-   return items[Math.floor(Math.random() * items.length)];
- }
+  return items[Math.floor(Math.random() * items.length)];
+}
 
- export {getRandomArrayElement};
+export {getRandomArrayElement};

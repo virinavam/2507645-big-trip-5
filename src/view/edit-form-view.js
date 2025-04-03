@@ -2,12 +2,12 @@ import AbstractView from '../framework/view/abstract-view.js';
 
 function createEventEditorTemplate(routePoint) {
   const { destination, options } = routePoint;
-  const optionsHtml = options.map(option => `
+  const optionsHtml = options.map((option) => `
     <li>
       <input type="text" value="${option.name}" placeholder="Option Name" />
       <input type="number" value="${option.price}" placeholder="Option Price" />
     </li>
-  `).join("");
+  `).join('');
 
   return `
     <form>

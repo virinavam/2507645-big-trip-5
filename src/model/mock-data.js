@@ -1,4 +1,4 @@
-import {getRandomTask} from '../mock/mock.js';  // Это пример. Подключите необходимые моковые данные.
+import {getRandomTask} from '../mock/mock.js'; // Это пример. Подключите необходимые моковые данные.
 
 export function generateMockData() {
   // Генерация случайных данных
