@@ -1,4 +1,4 @@
-import { getRandomArrayElement } from '../utils.js';
+import {getRandomArrayElement} from '../utils/common.js';
 
 export const COLORS_LIST = ['red', 'green', 'blue'];
 
