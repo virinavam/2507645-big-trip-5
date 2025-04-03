@@ -8,10 +8,7 @@ const infoContainer = document.querySelector('.trip-main');
 const filterContainer = document.querySelector('.trip-controls__filters');
 const contentContainer = document.querySelector('.trip-events');
 const tasksModel = new TasksModel();
-const boardPresenter = new BoardPresenter({
-   boardContainer: siteMainElement,
-   tasksModel,
- });
+const boardPresenter = new BoardPresenter({boardContainer: siteMainElement, tasksModel});
 
 const toolbarPresenter = new ToolbarPresenter({filterContainer, contentContainer});
 
