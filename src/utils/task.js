@@ -18,8 +18,4 @@ function isTaskExpiringToday(dueDate) {
   return dueDate && dayjs(dueDate).isSame(dayjs(), 'D');
 }
 
-function isTaskExpiringToday(dueDate) {
-   return dueDate && dayjs(dueDate).isSame(dayjs(), 'D');
- }
-
- export {humanizeTaskDueDate, isTaskExpired, isTaskRepeating, isTaskExpiringToday};
+export { humanizeTaskDueDate, isTaskExpired, isTaskRepeating, isTaskExpiringToday };
