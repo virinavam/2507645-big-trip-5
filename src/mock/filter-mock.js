@@ -1,4 +1,4 @@
-import { filter } from '../utils/filter.js';
+import { filter } from '../utils/filter-utils.js';
 
 function generateFilter(tasks) {
   return Object.entries(filter).map(
