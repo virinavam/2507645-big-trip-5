@@ -8,3 +8,5 @@ const FilterType = {
   REPEATING: 'repeating',
   ARCHIVE: 'archive',
 };
+
+export { COLORS };
