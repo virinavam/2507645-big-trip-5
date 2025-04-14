@@ -1,4 +1,4 @@
-const COLORS = ['black', 'yellow', 'blue', 'green', 'pink'];
+const COLORS = ['black', 'yellow', 'blue', 'green', 'pink', 'red', 'purple'];
 
 const FilterType = {
   ALL: 'all',
@@ -8,5 +8,3 @@ const FilterType = {
   REPEATING: 'repeating',
   ARCHIVE: 'archive',
 };
-
-export { COLORS, FilterType };
