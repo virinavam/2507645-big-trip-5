@@ -1,3 +1,3 @@
-const COLORS = ['black', 'yellow', 'blue', 'green', 'pink'];
+const COLORS = ['black', 'yellow', 'blue', 'green', 'pink', 'red', 'purple'];
 
-export {COLORS};
+export { COLORS };

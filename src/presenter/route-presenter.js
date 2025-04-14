@@ -1,4 +1,4 @@
-import { generateMockData } from '../model/mock-data.js';
+import { generateSampleData } from '../model/mock-data.js';
 
 export class RoutePointPresenter {
   constructor(view) {
@@ -7,7 +7,7 @@ export class RoutePointPresenter {
   }
 
   loadRoutePoints() {
-    this.routePoints = generateMockData();
+    this.routePoints = generateSampleData();
     this.render();
   }
 

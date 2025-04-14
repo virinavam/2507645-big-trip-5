@@ -1,4 +1,4 @@
-import {RenderPosition, render} from '../render.js';
+import { RenderPosition, render } from '../render.js';
 import TripInfoView from '../view/trip-info-view.js';
 import EventsView from '../view/trip-events-view.js';
 import EventView from '../view/trip-event-view.js';
@@ -15,13 +15,17 @@ export default class ContentPresenter {
   infoContainer = null;
   contentContainer = null;
 
-  constructor({infoContainer, contentContainer}) {
+  constructor({ infoContainer, contentContainer }) {
     this.infoContainer = infoContainer;
     this.contentContainer = contentContainer;
   }
 
   init() {
-    render(this.tripInfoComponent, this.infoContainer, RenderPosition.AFTERBEGIN);
+    render(
+      this.tripInfoComponent,
+      this.infoContainer,
+      RenderPosition.AFTERBEGIN,
+    );
     render(this.eventsComponent, this.contentContainer);
     render(this.eventEditorComponent, this.eventsComponent.getElement());
 

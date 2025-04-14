@@ -1,5 +1,5 @@
-import {RoutePointPresenter} from './presenter';
-import {RoutePointView} from './route-point-view';
+import { RoutePointPresenter } from './presenter';
+import { RoutePointView } from './route-point-view';
 
 const container = document.getElementById('route-points-container');
 

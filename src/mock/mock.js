@@ -1,4 +1,4 @@
-import {getRandomArrayElement} from '../utils/common.js';
+import { getRandomArrayElement } from '../utils/common.js';
 
 export const COLORS_LIST = ['red', 'green', 'blue'];
 
@@ -66,7 +66,7 @@ const mockTasks = [
     color: getRandomArrayElement(COLORS_LIST),
     isArchive: false,
     isFavorite: true,
-  }
+  },
 ];
 
 function getRandomTask() {
