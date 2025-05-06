@@ -1,28 +1,28 @@
-import ToolbarPresenter from './presenter/toolbar-presenter.js';
-import ContentPresenter from './presenter/content-presenter.js';
-import BoardPresenter from './presenter/board-presenter.js';
-import TasksModel from './model/task-model.js';
-import {generateFilter} from './mock/filter-mock.js';
+import PointsModel from './model/points-model.js';
+import OffersModel from './model/offers-model.js';
+import DestinationsModel from './model/destinations-model.js';
+import RoutePresenter from './presenter/route-presenter.js';
+import FiltersPresenter from './presenter/filters-presenter.js';
+import TripInfoPresenter from './presenter/trip-info-presenter.js';
+import MockService from './service/mock-service.js';
 
-const infoContainer = document.querySelector('.trip-main');
-const filterContainer = document.querySelector('.trip-controls__filters');
-const contentContainer = document.querySelector('.trip-events');
-const tasksModel = new TasksModel();
-const boardPresenter = new BoardPresenter({ boardContainer: contentContainer, tasksModel });
+const mockService = new MockService();
+const pointsModel = new PointsModel(mockService);
+const offersModel = new OffersModel(mockService);
+const destinationsModel = new DestinationsModel(mockService);
 
-const filters = generateFilter(tasksModel.tasks); // Добавлено
+const container = document.querySelector('.trip-events');
 
-const toolbarPresenter = new ToolbarPresenter({
-  filterContainer,
-  contentContainer,
-  filters // Передача фильтров
+const routePresenter = new RoutePresenter({
+  container,
+  pointsModel,
+  offersModel,
+  destinationsModel
 });
 
-const contentPresenter = new ContentPresenter({
-  infoContainer,
-  contentContainer
-});
+const filtersPresenter = new FiltersPresenter({ pointsModel });
+const tripInfoPresenter = new TripInfoPresenter();
 
-toolbarPresenter.init();
-contentPresenter.init();
-boardPresenter.init();
+routePresenter.init();
+filtersPresenter.init();
+tripInfoPresenter.init();
