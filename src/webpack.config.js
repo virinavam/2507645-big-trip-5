@@ -10,6 +10,12 @@ module.exports = {
     clean: true,
   },
   devtool: "source-map",
+  resolve: {
+    alias: {
+      utils: path.resolve(__dirname, 'src/utils/'),
+      view: path.resolve(__dirname, 'src/view/'),
+    },
+  },
   plugins: [
     new HtmlPlugin({
       template: "public/index.html",
