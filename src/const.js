@@ -147,4 +147,3 @@ export {
   MSEC_IN_DAY,
   COLORS
 };
-export { COLORS };
