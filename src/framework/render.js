@@ -44,12 +44,7 @@ function render(component, container, place = RenderPosition.BEFOREEND) {
  * @param {AbstractView} oldComponent Компонент, который нужно скрыть
  */
 function replace(newComponent, oldComponent) {
-  if (
-    !(
-      newComponent instanceof AbstractView &&
-      oldComponent instanceof AbstractView
-    )
-  ) {
+  if (!(newComponent instanceof AbstractView && oldComponent instanceof AbstractView)) {
     throw new Error('Can replace only components');
   }
 
@@ -82,4 +77,4 @@ function remove(component) {
   component.removeElement();
 }
 
-export { RenderPosition, createElement, render, replace, remove };
+export {RenderPosition, createElement, render, replace, remove};

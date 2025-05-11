@@ -17,4 +17,4 @@ function render(component, container, place = RenderPosition.BEFOREEND) {
   container.insertAdjacentElement(place, element);
 }
 
-export { RenderPosition, createElement, render };
+export {RenderPosition, createElement, render};
