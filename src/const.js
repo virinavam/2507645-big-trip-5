@@ -9,8 +9,6 @@ const POINTS_COUNT = 5;
 const MAX_PRICE_VALUE = 200;
 const MAX_IMAGES_COUNT = 5;
 
-const COLORS = ['black', 'yellow', 'blue', 'green', 'pink', 'red', 'purple'];
-
 const EVENT_TYPES = [
   'taxi',
   'bus',
@@ -48,13 +46,7 @@ const FilterType = {
   ANY: 'any',
   FUTURE: 'future',
   PRESENT: 'present',
-  PAST: 'past',
-  ALL: 'all',
-  OVERDUE: 'overdue',
-  TODAY: 'today',
-  FAVORITES: 'favorites',
-  REPEATING: 'repeating',
-  ARCHIVE: 'archive'
+  PAST: 'past'
 };
 
 const SortType = {
@@ -145,5 +137,4 @@ export {
   MocksMaxCount,
   MSEC_IN_HOUR,
   MSEC_IN_DAY,
-  COLORS
 };
