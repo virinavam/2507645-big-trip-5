@@ -7,7 +7,7 @@ import {
 } from '../const.js';
 
 
-export default class MainApiService extends ApiService {
+export default class MockApiService extends ApiService {
   _defaultHeaders = new Headers({'Content-Type': 'application/json'});
 
 

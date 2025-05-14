@@ -5,10 +5,10 @@ import RoutePresenter from './presenter/route-presenter.js';
 import FiltersPresenter from './presenter/filters-presenter.js';
 import TripInfoPresenter from './presenter/trip-info-presenter.js';
 import CreatePointPresenter from './presenter/create-point-presenter.js';
-import MainApiService from './service/main-api-service.js';
+import MockApiService from './service/mock-api-service.js';
 import FiltersModel from './model/filters-model.js';
 
-const apiService = new MainApiService();
+const apiService = new MockApiService();
 
 const pointsModel = new PointsModel(apiService);
 const offersModel = new OffersModel(apiService);
@@ -50,7 +50,6 @@ const bootstrap = async () => {
     destinationsModel.init(),
   ]);
   pointsModel.init();
-
   routePresenter.init();
   filtersPresenter.init();
   tripInfoPresenter.init();

@@ -10,6 +10,7 @@ class TripEventsListView extends BaseView {
   getTemplate() {
     return createTripEventsListTemplate();
   }
+
   addComponent(component) {
     const listElement = createElement(createElementWrapperTemplate());
     render(component, listElement);
