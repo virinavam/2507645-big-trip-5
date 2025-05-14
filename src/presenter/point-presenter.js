@@ -127,4 +127,5 @@ export default class PointPresenter {
   #pointFavoriteToggleHandler = (isFavorite) => {
     this.#onPointChange({ ...this.#point, isFavorite });
   };
+  
 }
