@@ -9,6 +9,22 @@ const POINTS_COUNT = 5;
 const MAX_PRICE_VALUE = 200;
 const MAX_IMAGES_COUNT = 5;
 
+const AUTH_TOKEN = 'Basic XUGdAalOHZGGaWLvNm';
+const API_HOST = 'https://21.objects.htmlacademy.pro/big-trip';
+
+const HttpMethod = {
+  GET: 'GET',
+  PUT: 'PUT',
+  POST: 'POST',
+  DELETE: 'DELETE',
+};
+
+const Endpoint = {
+  POINTS: 'points',
+  OFFERS: 'offers',
+  DESTINATIONS: 'destinations',
+};
+
 const EVENT_TYPES = [
   'taxi',
   'bus',
@@ -49,7 +65,7 @@ const POINT_DUMMY = {
   type: DEFAULT_EVENT_TYPE,
 };
 
-const REQUIRED_POINT_FIELDS = ['dateFrom', 'dateTo', 'destination', 'type'];
+const REQUIRED_POINT_FIELDS = ['dateFrom', 'dateTo', 'destination', 'type', 'basePrice'];
 
 const PointMode = {
   IDLE: 'IDLE',
@@ -79,7 +95,6 @@ const SortType = {
 const FilterSettings = {
   [FilterType.ANY]: {
     label: 'Everything',
-    defaultSelected: true,
   },
   [FilterType.FUTURE]: { label: 'Future' },
   [FilterType.PRESENT]: { label: 'Present' },
@@ -146,6 +161,20 @@ const UpdateType = {
   INIT: 'INIT',
 };
 
+const UserAction = {
+  UPDATE_POINT: 'UPDATE_POINT',
+  DELETE_POINT: 'DELETE_POINT',
+  CREATE_POINT: 'CREATE_POINT',
+};
+
+const UiBlockerLimit = {
+  LOWER: 250,
+  UPPER: 1000,
+};
+
+const DESTINATIONS_NAMES_MAX_COUNT = 3;
+
+
 export {
   POINTS_COUNT,
   EVENT_TYPES,
@@ -168,4 +197,11 @@ export {
   MSEC_IN_HOUR,
   MSEC_IN_DAY,
   UpdateType,
+  AUTH_TOKEN,
+  API_HOST,
+  HttpMethod,
+  Endpoint,
+  UserAction,
+  UiBlockerLimit,
+  DESTINATIONS_NAMES_MAX_COUNT,
 };
