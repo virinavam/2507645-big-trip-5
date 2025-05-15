@@ -1,59 +1,65 @@
-import PointsModel from './model/points-model.js';
-import OffersModel from './model/offers-model.js';
-import DestinationsModel from './model/destinations-model.js';
-import RoutePresenter from './presenter/route-presenter.js';
-import FiltersPresenter from './presenter/filters-presenter.js';
-import TripInfoPresenter from './presenter/trip-info-presenter.js';
-import CreatePointPresenter from './presenter/create-point-presenter.js';
-import MainApiService from './service/main-api-service.js';
-import FiltersModel from './model/filters-model.js';
+import TripPresenter from './presenter/trip-presenter';
+import PointModel from './model/point-model';
+import DestinationModel from './model/destinations-model';
+import OfferModel from './model/offers-model';
+import FilterModel from './model/filter-model';
+import FilterPresenter from './presenter/filter-presenter';
+import NewPointButtonView from './view/new-point-button-view';
+import {render} from './framework/render';
+import PointsApiService from './api-service/points-api';
+import DestinationsApiService from './api-service/destinations-api';
+import OffersApiService from './api-service/offers-api';
 
-const apiService = new MainApiService();
+const AUTHORIZATION = 'Basic IrinaV';
+const END_POINT = 'https://21.objects.htmlacademy.pro/big-trip';
 
-const pointsModel = new PointsModel(apiService);
-const offersModel = new OffersModel(apiService);
-const destinationsModel = new DestinationsModel(apiService);
-const filtersModel = new FiltersModel();
-
-const pointsContainer = document.querySelector('.trip-events');
-const filtersContainer = document.querySelector('.trip-controls__filters');
-const tripMainContainer = document.querySelector('.trip-main');
-
-const tripInfoPresenter = new TripInfoPresenter({
-  container: tripMainContainer,
-  destinationsModel,
-  offersModel,
-  pointsModel,
+const tripContainer = document.querySelector('.trip-events');
+const headerContainer = document.querySelector('.trip-main');
+const pointsModel = new PointModel({
+  pointsApiService: new PointsApiService(END_POINT, AUTHORIZATION)
+});
+const destinationsModel = new DestinationModel({
+  destinationsApiService: new DestinationsApiService(END_POINT, AUTHORIZATION)
+});
+const offersModel = new OfferModel({
+  offersApiService: new OffersApiService(END_POINT, AUTHORIZATION)
+});
+const filtersModel = new FilterModel();
+const tripPresenter = new TripPresenter({
+  container: tripContainer,
+  pointsModel: pointsModel,
+  destinationsModel: destinationsModel,
+  offersModel: offersModel,
+  filtersModel: filtersModel,
+  onNewPointDestroy: newPointCloseHandler
+});
+const filterPresenter = new FilterPresenter({
+  filterContainer: headerContainer.querySelector('.trip-controls__filters'),
+  filterModel: filtersModel,
+  pointsModel
 });
 
-const createPointPresenter = new CreatePointPresenter({
-  container: tripMainContainer,
-  editorContainer: pointsContainer,
-  offersModel,
-  destinationsModel,
+const newPointButtonComponent = new NewPointButtonView({
+  onClick: NewPointButtonClickHandler
 });
 
-const routePresenter = new RoutePresenter({
-  container: pointsContainer,
-  createPointPresenter,
-  pointsModel,
-  offersModel,
-  destinationsModel,
-  filtersModel,
+function newPointCloseHandler() {
+  newPointButtonComponent.enableButton();
+}
+
+function NewPointButtonClickHandler() {
+  tripPresenter.createPoint();
+  newPointButtonComponent.disableButton();
+}
+
+render(newPointButtonComponent, headerContainer);
+
+filterPresenter.init();
+tripPresenter.init();
+offersModel.init().finally(() => {
+  destinationsModel.init().finally(() => {
+    pointsModel.init().then(() => {
+      newPointButtonComponent.enableButton();
+    });
+  });
 });
-
-const filtersPresenter = new FiltersPresenter({ container: filtersContainer, pointsModel, filtersModel });
-
-const bootstrap = async () => {
-  await Promise.all([
-    offersModel.init(),
-    destinationsModel.init(),
-  ]);
-  pointsModel.init();
-
-  routePresenter.init();
-  filtersPresenter.init();
-  tripInfoPresenter.init();
-};
-
-bootstrap();

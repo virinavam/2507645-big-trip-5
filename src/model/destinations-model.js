@@ -1,48 +1,25 @@
-import { UpdateType } from '../const.js';
-import Observable from '../framework/observable.js';
-import { deleteItem, updateItem } from '../utils.js';
+import Observable from '../framework/observable';
+import {UpdateType} from '../const';
 
-export default class DestinationsModel extends Observable {
-  #service = null;
-  #destinations = null;
-
-  constructor(service) {
+export default class DestinationModel extends Observable{
+  #destinationsApiService = null;
+  #destinations = [];
+  constructor({destinationsApiService}) {
     super();
-    this.#service = service;
+    this.#destinationsApiService = destinationsApiService;
   }
 
-  async init() {
-    try {
-      const destinations = await this.#service.destinations;
-      this.#destinations = destinations;
-      this._notify(UpdateType.INIT, { data: destinations });
-
-    } catch (err) {
-      this.#destinations = [];
-      this._notify(UpdateType.INIT, { error: err });
-    }
-  }
-
-  get() {
+  get destinations() {
     return this.#destinations;
   }
 
-  getById(id) {
-    return this.#destinations.find((destination) => destination.id === id);
-  }
-
-  add(type, destination) {
-    this.#destinations.push(type, destination);
-    this._notify(destination);
-  }
-
-  update(type, destination) {
-    this.#destinations = updateItem(this.#destinations, destination);
-    this._notify(type, destination);
-  }
-
-  delete(type, destination) {
-    this.#destinations = deleteItem(this.#destinations, destination);
-    this._notify(type, destination);
+  async init(){
+    try{
+      this.#destinations = await this.#destinationsApiService.destinations;
+      this._notify(UpdateType.INIT);
+    } catch (error){
+      this.#destinations = null;
+      this._notify(UpdateType.INIT, {error});
+    }
   }
 }

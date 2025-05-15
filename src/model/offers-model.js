@@ -1,48 +1,25 @@
-import { UpdateType } from '../const.js';
-import Observable from '../framework/observable.js';
-import { deleteItem, updateItem } from '../utils.js';
+import Observable from '../framework/observable';
+import {UpdateType} from '../const';
 
-export default class OffersModel extends Observable {
-  #service = null;
-  #offers = null;
-
-  constructor(service) {
+export default class OfferModel extends Observable{
+  #offersApiService = null;
+  #offers = [];
+  constructor({offersApiService}) {
     super();
-    this.#service = service;
+    this.#offersApiService = offersApiService;
   }
 
-  async init() {
-    try {
-      const offers = await this.#service.offers;
-      this.#offers = offers;
-      this._notify(UpdateType.INIT, { data: offers });
-
-    } catch (err) {
-      this.#offers = [];
-      this._notify(UpdateType.INIT, { error: err });
-    }
-  }
-
-  get() {
+  get offers(){
     return this.#offers;
   }
 
-  getByType(type) {
-    return this.#offers.find((offers) => offers.type === type.toLowerCase()).offers;
-  }
-
-  add(type, offer) {
-    this.#offers.push(offer);
-    this._notify(type, offer);
-  }
-
-  update(type, offer) {
-    this.#offers = updateItem(this.#offers, offer);
-    this._notify(type, offer);
-  }
-
-  delete(type, offer) {
-    this.#offers = deleteItem(this.#offers, offer);
-    this._notify(type, offer);
+  async init(){
+    try{
+      this.#offers = await this.#offersApiService.offers;
+      this._notify(UpdateType.INIT);
+    } catch (error){
+      this.#offers = null;
+      this._notify(UpdateType.INIT, {error});
+    }
   }
 }
