@@ -1,13 +1,13 @@
 import {sortPointDay, sortPointTime, sortPointPrice} from './point';
 import dayjs from 'dayjs';
-import {SortType} from '../const';
+import {SortTypes} from '../const';
 
 export const upperFirst = (str) => str[0].toUpperCase() + str.slice(1);
 
 export const sortPointsByType = {
-  [SortType.DEFAULT]: (points) => points.sort(sortPointDay),
-  [SortType.TIME]: (points) => points.sort(sortPointTime),
-  [SortType.PRICE]: (points) => points.sort(sortPointPrice)
+  [SortTypes.DEFAULT]: (points) => points.sort(sortPointDay),
+  [SortTypes.TIME]: (points) => points.sort(sortPointTime),
+  [SortTypes.PRICE]: (points) => points.sort(sortPointPrice)
 };
 
 export const getStartPoint = (points) => {

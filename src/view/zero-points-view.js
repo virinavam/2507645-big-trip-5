@@ -14,7 +14,7 @@ const CreateFetchError = () =>
   </p >
   `;
 
-export default class NoPointView extends AbstractView {
+export default class ZeroPointsView extends AbstractView {
   #filterType = null;
   #isFetchError = null;
 

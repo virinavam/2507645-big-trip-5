@@ -1,17 +1,17 @@
 import {remove, render, RenderPosition} from '../framework/render';
 import TripListView from '../view/event-list-view';
 import Sorting from '../view/sort-view';
-import NoPointView from '../view/no-point-view';
+import ZeroPointsView from '../view/zero-points-view';
 import PointPresenter from './point-presenter';
 import {sortPointsByType} from '../utils/common';
-import {filterByType} from '../utils/filter';
-import {FilterType, SortType, TimeLimit, UpdateType, UserAction} from '../const';
+import {filterByType} from '../utils/filters';
+import {FilterType, SortTypes, TimeLimit, UpdateType, UserAction} from '../const';
 import NewPointPresenter from './new-point-presenter';
 import LoadingView from '../view/loading-view';
 import UiBlocker from '../framework/ui-blocker/ui-blocker';
-import TripInfoView from '../view/trip-info-view';
+import PointsInfoView from '../view/points-info-view';
 
-class TripPresenter {
+class JourneyPresenter {
   #container = null;
   #pointsModel = null;
   #destinationsModel = null;
@@ -24,7 +24,7 @@ class TripPresenter {
   #noPoint = null;
   #pointPresenter = new Map();
   #newPointPresenter = null;
-  #currentSortType = SortType.DEFAULT;
+  #currentSortType = SortTypes.DEFAULT;
   #filterType = FilterType.EVERYTHING;
   #headerContainer = document.querySelector('.trip-main');
   #isLoading = true;
@@ -74,7 +74,7 @@ class TripPresenter {
   }
 
   createPoint() {
-    this.#currentSortType = SortType.DEFAULT;
+    this.#currentSortType = SortTypes.DEFAULT;
     this.#filtersModel.setFilter(UpdateType.MAJOR, FilterType.EVERYTHING);
     render(this.#component, this.#container);
     this.#newPointPresenter.init();
@@ -178,14 +178,14 @@ class TripPresenter {
   }
 
   #renderNoPoints() {
-    this.#noPoint = new NoPointView({
+    this.#noPoint = new ZeroPointsView({
       filterType: this.#filterType,
     });
     render(this.#noPoint, this.#container, RenderPosition.AFTERBEGIN);
   }
 
   #renderFetchError() {
-    this.#noPoint = new NoPointView({
+    this.#noPoint = new ZeroPointsView({
       filterType: this.#filterType,
       isFetchError: this.#isFetchError
     });
@@ -194,7 +194,7 @@ class TripPresenter {
 
   #renderTripInfo() {
     const points = this.points;
-    this.#tripInfoComponent = new TripInfoView({
+    this.#tripInfoComponent = new PointsInfoView({
       points: points,
       destinations: [...this.#destinationsModel.destinations],
       offers: [...this.#offersModel.offers]
@@ -236,8 +236,8 @@ class TripPresenter {
       remove(this.#noPoint);
     }
     if (resetSortType) {
-      this.#currentSortType = SortType.DEFAULT;
+      this.#currentSortType = SortTypes.DEFAULT;
     }
   }
 }
-export default TripPresenter;
+export default JourneyPresenter;

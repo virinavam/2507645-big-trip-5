@@ -1,5 +1,5 @@
-import TripPresenter from './presenter/trip-presenter';
-import PointModel from './model/point-model';
+import JourneyPresenter from './presenter/journey-presenter';
+import TripPointModel from './model/trip-point-model';
 import DestinationModel from './model/destinations-model';
 import OfferModel from './model/offers-model';
 import FilterModel from './model/filter-model';
@@ -15,7 +15,7 @@ const END_POINT = 'https://21.objects.htmlacademy.pro/big-trip';
 
 const tripContainer = document.querySelector('.trip-events');
 const headerContainer = document.querySelector('.trip-main');
-const pointsModel = new PointModel({
+const pointsModel = new TripPointModel({
   pointsApiService: new PointsApiService(END_POINT, AUTHORIZATION)
 });
 const destinationsModel = new DestinationModel({
@@ -25,7 +25,7 @@ const offersModel = new OfferModel({
   offersApiService: new OffersApiService(END_POINT, AUTHORIZATION)
 });
 const filtersModel = new FilterModel();
-const tripPresenter = new TripPresenter({
+const tripPresenter = new JourneyPresenter({
   container: tripContainer,
   pointsModel: pointsModel,
   destinationsModel: destinationsModel,

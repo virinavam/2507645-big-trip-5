@@ -7,7 +7,7 @@ export const FilterType = {
   PAST: 'past'
 };
 
-export const SortType = {
+export const SortTypes = {
   DEFAULT: 'day',
   TIME: 'time',
   PRICE: 'price'
