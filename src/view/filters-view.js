@@ -1,5 +1,5 @@
 import AbstractView from '../framework/view/abstract-view';
-import {upperFirst} from '../utils/common';
+import {upperFirst} from '../utils.js';
 
 const createFiltersElements = (filters, currentFilterType) => {
   let filtersTemplates = '';
