@@ -1,4 +1,4 @@
-import {calculateDuration, humanizePointDate} from '../utils.js';
+import {calculateDuration, humanizePointDate} from '../utils/point';
 import AbstractView from '../framework/view/abstract-view';
 
 const createOffersTemplates = (allOffers, checkedOffers) => {

@@ -1,6 +1,6 @@
 import AbstractView from '../framework/view/abstract-view.js';
-import {getEndPoint, getStartPoint} from '../utils.js';
-import {humanizePointDate} from '../utils.js';
+import {getEndPoint, getStartPoint} from '../utils/common';
+import {humanizePointDate} from '../utils/point';
 
 const getTotalAmount = (points, offers) => {
   let sum = 0;

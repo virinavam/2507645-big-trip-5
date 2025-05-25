@@ -9,14 +9,14 @@
     "start": "webpack serve --mode development --open"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.26.9",
-    "babel-loader": "^10.0.0",
-    "copy-webpack-plugin": "^13.0.0",
-    "css-loader": "^6.7.3",
+    "@babel/preset-env": "7.26.9",
+    "babel-loader": "10.0.0",
+    "copy-webpack-plugin": "13.0.0",
+    "css-loader": "6.7.3",
     "eslint": "8.38.0",
     "eslint-config-htmlacademy": "9.0.0",
-    "html-webpack-plugin": "^5.6.3",
-    "style-loader": "^3.3.2",
+    "html-webpack-plugin": "5.6.3",
+    "style-loader": "3.3.2",
     "webpack": "5.98.0",
     "webpack-cli": "6.0.1"
   },
@@ -24,10 +24,10 @@
     "node": "20"
   },
   "dependencies": {
-    "@babel/core": "^7.26.9",
-    "dayjs": "^1.11.13",
-    "flatpickr": "^4.6.13",
-    "webpack-dev-server": "^5.2.0"
+    "@babel/core": "7.26.9",
+    "dayjs": "1.11.13",
+    "flatpickr": "4.6.13",
+    "webpack-dev-server": "5.2.0"
   },
   "browserslist": [
     "> 0.2%",

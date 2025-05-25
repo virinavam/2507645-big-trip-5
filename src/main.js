@@ -1,5 +1,5 @@
 import JourneyPresenter from './presenter/journey-presenter';
-import JourneyPointModel from './model/journey-point-model';
+import TripPointModel from './model/trip-point-model';
 import DestinationModel from './model/destinations-model';
 import OfferModel from './model/offers-model';
 import FilterModel from './model/filter-model';
@@ -10,12 +10,12 @@ import PointsApiService from './api-service/points-api';
 import DestinationsApiService from './api-service/destinations-api';
 import OffersApiService from './api-service/offers-api';
 
-const AUTHORIZATION = 'Basic IrinaV';
-const END_POINT = 'https://21.objects.htmlacademy.pro/big-trip';
+const AUTHORIZATION = 'Basic MgcGFglT6u44dg32wFFp';
+const END_POINT = 'https://24.objects.htmlacademy.pro/big-trip';
 
 const tripContainer = document.querySelector('.trip-events');
 const headerContainer = document.querySelector('.trip-main');
-const pointsModel = new JourneyPointModel({
+const pointsModel = new TripPointModel({
   pointsApiService: new PointsApiService(END_POINT, AUTHORIZATION)
 });
 const destinationsModel = new DestinationModel({

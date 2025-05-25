@@ -1,7 +1,7 @@
-import {humanizePointDate} from '../utils.js';
+import {humanizePointDate} from '../utils/point';
 import AbstractStatefulView from '../framework/view/abstract-stateful-view';
 import {TYPES} from '../const';
-import {upperFirst} from '../utils.js';
+import {upperFirst} from '../utils/common';
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import dayjs from 'dayjs';
